@@ -11,8 +11,8 @@ import 'package:desktop_window/desktop_window.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
-    await DesktopWindow.setMinWindowSize(Size(650.0, 650.0));
-    await DesktopWindow.setMaxWindowSize(Size(1280, 720));
+    await DesktopWindow.setMinWindowSize(Size(850.0, 850.0));
+    await DesktopWindow.setMaxWindowSize(Size(850, 850));
   } else
     Platform.isAndroid;
   runApp(MyApp());
@@ -24,6 +24,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Login(),
+      theme: ThemeData(
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.deepOrange,
+            elevation: 20.0),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

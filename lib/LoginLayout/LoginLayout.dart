@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:login/HomeLayout/HomeLayout.dart';
 
 import 'Components.dart';
 
@@ -91,19 +92,7 @@ class _LoginState extends State<Login> {
                         final form = formkey.currentState;
 
                         if (form != null && form.validate()) {
-                          showDialog<String>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () => Navigator.pop(
-                                            context, 'Thanks for Login'),
-                                        child: const Text('Thanks for Login'),
-                                      ),
-                                    ],
-                                    content: const Text('Message Success'),
-                                    title: const Text('Messsage Success'),
-                                  ));
+                          Navigateto(context, const HomeLayout());
                         }
                       }),
                 )

@@ -1,5 +1,6 @@
-// ignore_for_file: sort_child_properties_last, non_constant_identifier_names, constant_identifier_names, unused_element
+// ignore_for_file: sort_child_properties_last, non_constant_identifier_names, constant_identifier_names, unused_element, prefer_const_constructors
 
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_libserialport/flutter_libserialport.dart';
@@ -117,7 +118,7 @@ Widget Selectedport({
           color: myFocusNode.hasFocus
               ? const Color.fromARGB(255, 4, 169, 245)
               : Colors.blue),
-      hint: Text('Please choose a port'),
+      hint: const Text('Please choose a port'),
       items: AvailablePort.map((port) {
         return DropdownMenuItem<String>(
           child: Text(port.toString()),
@@ -125,3 +126,30 @@ Widget Selectedport({
         );
       }).toList(),
     );
+void Navigateto(context, widget) => Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => widget),
+    );
+int currentindex = 0;
+
+List<NavigationRailDestination> bottomitems = [
+  NavigationRailDestination(
+      icon: Icon(Icons.safety_check), label: Text('Safety')),
+  NavigationRailDestination(icon: Icon(Icons.cabin), label: Text('Home')),
+  NavigationRailDestination(
+      icon: Icon(Icons.location_city), label: Text('City')),
+  NavigationRailDestination(icon: Icon(Icons.room), label: Text('Location')),
+];
+void changebottomnavindex(int index) {
+  currentindex = index;
+}
+
+Widget getItem({required Icon icon, required Text text}) {
+  return RotatedBox(
+    quarterTurns: -1,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [icon, text],
+    ),
+  );
+}
