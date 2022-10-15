@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_libserialport/flutter_libserialport.dart';
 import 'package:login/LoginLayout/Components.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 Widget defultbutton({
   double width = double.maxFinite,
@@ -140,6 +141,14 @@ List<NavigationRailDestination> bottomitems = [
       icon: Icon(Icons.location_city), label: Text('City')),
   NavigationRailDestination(icon: Icon(Icons.room), label: Text('Location')),
 ];
+
+List<SidebarXItem> bottomitems1 = [
+  SidebarXItem(icon: Icons.safety_check, label: 'Safety'),
+  SidebarXItem(icon: Icons.cabin, label: 'Home'),
+  SidebarXItem(icon: Icons.location_city, label: 'City'),
+  SidebarXItem(icon: Icons.room, label: 'Location'),
+];
+
 void changebottomnavindex(int index) {
   currentindex = index;
 }

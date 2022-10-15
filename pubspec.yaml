@@ -32,6 +32,7 @@ dependencies:
   flutter_libserialport: ^0.3.0
   flutter_speed_dial: ^6.1.0+1
   floating_bottom_navigation_bar: ^1.5.2
+  sidebarx: ^0.14.0
 
   flutter:
     sdk: flutter
